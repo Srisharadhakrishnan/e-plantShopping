@@ -1,15 +1,24 @@
-import "./App.css";
+import { useState } from "react";
+import ProductList from "./components/ProductList";
 
 function App() {
+  const [showProductList, setShowProductList] = useState(false);
+
   return (
-    <div>
-      <h1>Paradise Nursery</h1>
+    <div className="background-image">
+      {!showProductList ? (
+        <>
+          <h1>Paradise Nursery</h1>
 
-      <p>
-        Welcome to Paradise Nursery
-      </p>
-
-      <button>Get Started</button>
+          <button
+            onClick={() => setShowProductList(true)}
+          >
+            Get Started
+          </button>
+        </>
+      ) : (
+        <ProductList />
+      )}
     </div>
   );
 }
